@@ -6,7 +6,7 @@ export type beautyPackageType = {
   title: string;
   description: string;
   category: string;
-  image: string[];
+  images: string[];
   price: number;
   specialists: specialistType[];
   bookings: bookingType[];
