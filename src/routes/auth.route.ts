@@ -11,6 +11,6 @@ authRouter.post('/register', authInstance.register);
 
 //login
 
-authRouter.post('/login');
+authRouter.post('/login', authInstance.login);
 
 export default authRouter;
