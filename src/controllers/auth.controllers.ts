@@ -32,8 +32,7 @@ export default class AuthController {
   }
   public async login(req: Request, res: Response): Promise<void> {
     try {
-      const { name, email, password, photoUrl, address, phoneNumber } =
-        req.body;
+      const { email, password } = req.body;
 
       await Promise.resolve().then(async () => {
         const user = await UserModel.login(email, password);
