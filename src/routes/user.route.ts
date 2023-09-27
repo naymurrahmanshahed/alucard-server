@@ -19,7 +19,11 @@ userRouter.delete(
 
 //update an user
 
-userRouter.put('/:uid', authInstance.isAuthenticated);
+userRouter.put(
+  '/:uid',
+  authInstance.isAuthenticated,
+  userInstance.updateAnUser
+);
 
 //get all users
 
