@@ -11,7 +11,11 @@ const userInstance = new UserController();
 userRouter.get('/:uid', authInstance.isAuthenticated, userInstance.getAnUser);
 
 //delete an user
-userRouter.delete('/:uid', authInstance.isAuthenticated);
+userRouter.delete(
+  '/:uid',
+  authInstance.isAuthenticated,
+  userInstance.deleteAnUser
+);
 
 //update an user
 
