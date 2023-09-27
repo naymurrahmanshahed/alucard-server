@@ -27,6 +27,11 @@ userRouter.put(
 
 //get all users
 
-userRouter.get('/', authInstance.isAuthenticated, authInstance.isAdmin);
+userRouter.get(
+  '/',
+  authInstance.isAuthenticated,
+  authInstance.isAdmin,
+  userInstance.getAllUsers
+);
 
 export default userRouter;

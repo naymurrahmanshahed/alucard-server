@@ -74,4 +74,16 @@ export default class UserController {
       await handleError(error, res);
     }
   }
+
+  public async getAllUsers(req: Request, res: Response): Promise<void> {
+    try {
+      await Promise.resolve().then(async () => {
+        const users = await UserModel.find({});
+
+        res.status(200).json(users);
+      });
+    } catch (error: unknown) {
+      await handleError(error, res);
+    }
+  }
 }
