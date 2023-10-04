@@ -55,4 +55,35 @@ export default class beautyPackageController {
       await handleError(error, res);
     }
   }
+  public async updateABeautypackage(
+    req: Request,
+    res: Response
+  ): Promise<void> {
+    try {
+      const { title, desciption, category, images, price } = req.body;
+      const { bid } = req.params;
+      if (!mongoose.Types.ObjectId.isValid(bid)) {
+        res.status(404).json({ message: 'Beauty Package not found' });
+      }
+      await Promise.resolve().then(async () => {
+        const beautyPackages = await BeautyPackageModel.findByIdAndUpdate(
+          bid,
+          {
+            title,
+            desciption,
+            category,
+            images,
+            price,
+          },
+          {
+            new: true,
+          }
+        );
+
+        res.status(200).json(beautyPackages);
+      });
+    } catch (error: unknown) {
+      await handleError(error, res);
+    }
+  }
 }

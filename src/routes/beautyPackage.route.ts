@@ -26,7 +26,8 @@ beautyPackageRouter.post(
 beautyPackageRouter.put(
   '/:bid',
   authInstance.isAuthenticated,
-  authInstance.isAdmin
+  authInstance.isAdmin,
+  beautyPackageInstance.updateABeautypackage
 );
 
 //delete a beauty package
