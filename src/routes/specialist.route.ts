@@ -16,7 +16,12 @@ specialistRouter.get('/', specialistInstance.getAllSpecialists);
 specialistRouter.get('/:sid', specialistInstance.getASpecialist);
 
 //create a specialist
-specialistRouter.post('/', authInstance.isAuthenticated, authInstance.isAdmin);
+specialistRouter.post(
+  '/',
+  authInstance.isAuthenticated,
+  authInstance.isAdmin,
+  specialistInstance.createASpecialist
+);
 
 //update a specialist
 specialistRouter.put(

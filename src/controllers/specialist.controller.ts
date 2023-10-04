@@ -33,4 +33,23 @@ export default class SpecialistController {
       await handleError(error, res);
     }
   }
+  public async createASpecialist(req: Request, res: Response): Promise<void> {
+    try {
+      const { name, designation, bio, photoUrl, dateOfBirth } = req.body;
+
+      await Promise.resolve().then(async () => {
+        const specialist = await SpecialistModel.create({
+          name,
+          designation,
+          bio,
+          photoUrl,
+          dateOfBirth,
+        });
+
+        res.status(200).json(specialist);
+      });
+    } catch (error: unknown) {
+      await handleError(error, res);
+    }
+  }
 }
