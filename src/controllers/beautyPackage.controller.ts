@@ -33,4 +33,26 @@ export default class beautyPackageController {
       await handleError(error, res);
     }
   }
+  public async createABeautypackage(
+    req: Request,
+    res: Response
+  ): Promise<void> {
+    try {
+      const { title, desciption, category, images, price } = req.body;
+
+      await Promise.resolve().then(async () => {
+        const beautyPackages = await BeautyPackageModel.create({
+          title,
+          desciption,
+          category,
+          images,
+          price,
+        });
+
+        res.status(200).json(beautyPackages);
+      });
+    } catch (error: unknown) {
+      await handleError(error, res);
+    }
+  }
 }

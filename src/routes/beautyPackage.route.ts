@@ -18,7 +18,8 @@ beautyPackageRouter.get('/:bid', beautyPackageInstance.getABeautypackage);
 beautyPackageRouter.post(
   '/',
   authInstance.isAuthenticated,
-  authInstance.isAdmin
+  authInstance.isAdmin,
+  beautyPackageInstance.createABeautypackage
 );
 
 //update a beauty package
