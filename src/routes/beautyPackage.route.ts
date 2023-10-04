@@ -11,7 +11,7 @@ const beautyPackageInstance = new beautyPackageController();
 beautyPackageRouter.get('/', beautyPackageInstance.getAnBeautypackages);
 
 //get a beauty package
-beautyPackageRouter.get('/:bid');
+beautyPackageRouter.get('/:bid', beautyPackageInstance.getABeautypackage);
 
 //create a beauty package
 
