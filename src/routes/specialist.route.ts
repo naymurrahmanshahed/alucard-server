@@ -35,7 +35,8 @@ specialistRouter.put(
 specialistRouter.delete(
   ':sid',
   authInstance.isAuthenticated,
-  authInstance.isAdmin
+  authInstance.isAdmin,
+  specialistInstance.deleteASpecialist
 );
 
 export default specialistRouter;

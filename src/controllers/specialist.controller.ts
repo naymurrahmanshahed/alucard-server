@@ -80,4 +80,19 @@ export default class SpecialistController {
       await handleError(error, res);
     }
   }
+  public async deleteASpecialist(req: Request, res: Response): Promise<void> {
+    try {
+      const { sid } = req.params;
+      if (!mongoose.Types.ObjectId.isValid(sid)) {
+        res.status(404).json({ message: 'Specialist not found' });
+      }
+      await Promise.resolve().then(async () => {
+        const specialist = await SpecialistModel.findByIdAndDelete(sid);
+
+        res.status(200).json(specialist);
+      });
+    } catch (error: unknown) {
+      await handleError(error, res);
+    }
+  }
 }
