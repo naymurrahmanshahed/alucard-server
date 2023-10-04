@@ -80,4 +80,16 @@ export default class BookingController {
       await handleError(error, res);
     }
   }
+
+  public async getAllBooking(req: Request, res: Response) {
+    try {
+      await Promise.resolve().then(async () => {
+        const bookings = await BookingModel.find({});
+
+        res.status(200).json(bookings);
+      });
+    } catch (error: unknown) {
+      await handleError(error, res);
+    }
+  }
 }
