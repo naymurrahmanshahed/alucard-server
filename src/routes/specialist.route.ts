@@ -17,7 +17,7 @@ specialistRouter.get('/:sid', specialistInstance.getASpecialist);
 
 //create a specialist
 specialistRouter.post(
-  '/',
+  '/:bid',
   authInstance.isAuthenticated,
   authInstance.isAdmin,
   specialistInstance.createASpecialist
