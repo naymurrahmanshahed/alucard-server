@@ -52,4 +52,32 @@ export default class BookingController {
       await handleError(error, res);
     }
   }
+
+  public async deleteABooking(req: Request, res: Response) {
+    try {
+      const { bid } = req.params;
+
+      if (!mongoose.Types.ObjectId.isValid(bid)) {
+        res.status(404).json({ message: 'Booking not found' });
+      }
+
+      const user = await UserModel.findById(req.user?._id);
+
+      const matchedBooking = user?.bookings.find(
+        (booking: bookingType) => bid === booking._id.toString()
+      );
+
+      if (!matchedBooking) {
+        res.status(403).json({ message: "Booking doesn't exist" });
+      }
+
+      await Promise.resolve().then(async () => {
+        const booking = await BookingModel.findByIdAndDelete(bid);
+
+        res.status(200).json(booking);
+      });
+    } catch (error: unknown) {
+      await handleError(error, res);
+    }
+  }
 }
