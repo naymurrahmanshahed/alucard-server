@@ -13,7 +13,7 @@ const specialistInstance = new SpecialistController();
 specialistRouter.get('/', specialistInstance.getAllSpecialists);
 
 //get a specialist
-specialistRouter.get('/:sid');
+specialistRouter.get('/:sid', specialistInstance.getASpecialist);
 
 //create a specialist
 specialistRouter.post('/', authInstance.isAuthenticated, authInstance.isAdmin);
