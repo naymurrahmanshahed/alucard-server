@@ -35,7 +35,8 @@ beautyPackageRouter.put(
 beautyPackageRouter.delete(
   '/:bid',
   authInstance.isAuthenticated,
-  authInstance.isAdmin
+  authInstance.isAdmin,
+  beautyPackageInstance.deleteABeautypackage
 );
 
 export default beautyPackageRouter;
