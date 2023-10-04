@@ -27,7 +27,8 @@ specialistRouter.post(
 specialistRouter.put(
   '/sid',
   authInstance.isAuthenticated,
-  authInstance.isAdmin
+  authInstance.isAdmin,
+  specialistInstance.updateASpecialist
 );
 
 //delete a specialist

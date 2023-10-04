@@ -52,4 +52,32 @@ export default class SpecialistController {
       await handleError(error, res);
     }
   }
+  public async updateASpecialist(req: Request, res: Response): Promise<void> {
+    try {
+      const { name, designation, bio, photoUrl, dateOfBirth } = req.body;
+      const { sid } = req.params;
+      if (!mongoose.Types.ObjectId.isValid(sid)) {
+        res.status(404).json({ message: 'Specialist not found' });
+      }
+      await Promise.resolve().then(async () => {
+        const specialist = await SpecialistModel.findByIdAndUpdate(
+          sid,
+          {
+            name,
+            designation,
+            bio,
+            photoUrl,
+            dateOfBirth,
+          },
+          {
+            new: true,
+          }
+        );
+
+        res.status(200).json(specialist);
+      });
+    } catch (error: unknown) {
+      await handleError(error, res);
+    }
+  }
 }
