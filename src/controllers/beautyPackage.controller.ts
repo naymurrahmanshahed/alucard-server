@@ -38,12 +38,12 @@ export default class beautyPackageController {
     res: Response
   ): Promise<void> {
     try {
-      const { title, desciption, category, images, price } = req.body;
+      const { title, description, category, images, price } = req.body;
 
       await Promise.resolve().then(async () => {
         const beautyPackages = await BeautyPackageModel.create({
           title,
-          desciption,
+          description,
           category,
           images,
           price,
