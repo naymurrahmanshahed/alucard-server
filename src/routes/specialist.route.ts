@@ -25,7 +25,7 @@ specialistRouter.post(
 
 //update a specialist
 specialistRouter.put(
-  '/sid',
+  '/:sid',
   authInstance.isAuthenticated,
   authInstance.isAdmin,
   specialistInstance.updateASpecialist
@@ -33,7 +33,7 @@ specialistRouter.put(
 
 //delete a specialist
 specialistRouter.delete(
-  ':sid',
+  '/:sid',
   authInstance.isAuthenticated,
   authInstance.isAdmin,
   specialistInstance.deleteASpecialist
