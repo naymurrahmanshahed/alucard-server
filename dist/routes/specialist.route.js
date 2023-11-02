@@ -16,7 +16,7 @@ specialistRouter.get('/:sid', specialistInstance.getASpecialist);
 //create a specialist
 specialistRouter.post('/:bid', authInstance.isAuthenticated, authInstance.isAdmin, specialistInstance.createASpecialist);
 //update a specialist
-specialistRouter.put('/sid', authInstance.isAuthenticated, authInstance.isAdmin, specialistInstance.updateASpecialist);
+specialistRouter.put('/:sid', authInstance.isAuthenticated, authInstance.isAdmin, specialistInstance.updateASpecialist);
 //delete a specialist
-specialistRouter.delete(':sid', authInstance.isAuthenticated, authInstance.isAdmin, specialistInstance.deleteASpecialist);
+specialistRouter.delete('/:sid', authInstance.isAuthenticated, authInstance.isAdmin, specialistInstance.deleteASpecialist);
 exports.default = specialistRouter;
